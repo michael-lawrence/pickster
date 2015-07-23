@@ -1,0 +1,31 @@
+#container,
+#colorPicker,
+#huePicker {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#colorPicker,
+#huePicker {
+	display: inline-block;
+	border: 1px solid #000;
+	cursor: crosshair;
+}
+
+#swatch {
+	border: 1px solid #fff;
+	outline: 1px solid #000;
+}
+
+#colorPicker,
+#huePicker,
+#swatch {
+	display: inline-block;
+}
+
+#colorPicker canvas,
+#huePicker canvas,
+#swatch canvas {
+	vertical-align: bottom;
+}

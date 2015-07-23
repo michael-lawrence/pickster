@@ -1,0 +1,35 @@
+{
+  "jspm": {
+    "directories": {},
+    "dependencies": {
+      "color": "npm:color@^0.10.1",
+      "tinycolor2": "npm:tinycolor2@^1.1.2"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.1.13",
+      "babel-runtime": "npm:babel-runtime@^5.1.13",
+      "core-js": "npm:core-js@^0.9.4"
+    }
+  },
+  "name": "pickster",
+  "version": "1.0.0",
+  "description": "Configurable color picker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/michael-lawrence/pickster.git"
+  },
+  "keywords": [
+    "color",
+    "picker"
+  ],
+  "author": "Michael Lawrence <me@mikelawrence.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michael-lawrence/pickster/issues"
+  },
+  "homepage": "https://github.com/michael-lawrence/pickster#readme"
+}

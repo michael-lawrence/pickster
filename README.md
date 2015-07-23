@@ -1,0 +1,2 @@
+# pickster
+Configurable color picker

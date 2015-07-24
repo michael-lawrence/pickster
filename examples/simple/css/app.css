@@ -1,6 +1,7 @@
 #container,
 #colorPicker,
-#huePicker {
+#huePicker,
+#swatches {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
@@ -13,7 +14,8 @@
 	cursor: crosshair;
 }
 
-#swatch {
+#swatch,
+#swatches canvas {
 	border: 1px solid #fff;
 	outline: 1px solid #000;
 }
@@ -28,4 +30,12 @@
 #huePicker canvas,
 #swatch canvas {
 	vertical-align: bottom;
+}
+
+#swatches {
+	width: 320px;
+}
+
+#swatches canvas {
+	margin: 2px;
 }

@@ -1,6 +1,8 @@
 #container,
 #colorPicker,
+#hslPicker,
 #huePicker,
+#saturationPicker,
 #swatches {
 	-moz-user-select: none;
 	-webkit-user-select: none;
@@ -8,8 +10,9 @@
 }
 
 #colorPicker,
+#hslPicker,
+#saturationPicker,
 #huePicker {
-	display: inline-block;
 	border: 1px solid #000;
 	cursor: crosshair;
 }
@@ -22,12 +25,16 @@
 
 #colorPicker,
 #huePicker,
+#hslPicker,
+#saturationPicker,
 #swatch {
 	display: inline-block;
 }
 
 #colorPicker canvas,
+#hslPicker canvas,
 #huePicker canvas,
+#saturationPicker canvas,
 #swatch canvas {
 	vertical-align: bottom;
 }

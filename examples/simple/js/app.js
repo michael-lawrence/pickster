@@ -5,14 +5,20 @@ import HuePicker from 'pickster/HuePicker';
 import ColorPicker from 'pickster/ColorPicker';
 import Swatch from 'pickster/Swatch';
 import SwatchList from 'pickster/SwatchList';
+import HSLPicker from 'pickster/HSLPicker';
+import SaturationPicker from 'pickster/SaturationPicker';
 
 let $colorPicker = document.getElementById('colorPicker'),
 	$huePicker = document.getElementById('huePicker'),
 	$swatch = document.getElementById('swatch'),
 	$swatches = document.getElementById('swatches'),
 	$customSwatches = document.getElementById('customSwatches'),
-	colorPicker = new ColorPicker(320, 320),
-	huePicker = new HuePicker(20, 320),
+	$hslPicker = document.getElementById('hslPicker'),
+	$saturationPicker = document.getElementById('saturationPicker'),
+	colorPicker = new ColorPicker(360, 360),
+	huePicker = new HuePicker(20, 360),
+	hslPicker = new HSLPicker(720, 360),
+	saturationPicker = new SaturationPicker(20, 360),
 	swatch = new Swatch(20, 20),
 	swatches = new SwatchList(20, 20, [
 		'#ff0000',
@@ -49,7 +55,17 @@ swatches.on(SwatchList.CHANGE, function (color) {
 			swatch.color = color;
 });
 
+hslPicker.on(HSLPicker.CHANGE, function (color) {
+	saturationPicker.color = color;
+});
+
+saturationPicker.on(SaturationPicker.CHANGE, function (color) {
+	hslPicker.color = color;
+});
+
 swatches.appendTo($swatches);
 colorPicker.appendTo($colorPicker);
 huePicker.appendTo($huePicker);
 swatch.appendTo($swatch);
+hslPicker.appendTo($hslPicker);
+saturationPicker.appendTo($saturationPicker);

@@ -46,21 +46,23 @@ colorPicker.on(ColorPicker.CHANGE, function (color) {
 });
 
 huePicker.on(HuePicker.CHANGE, function (color) {
-	colorPicker.hue = color;
+	colorPicker.hue = color.hue();
 });
 
 swatches.on(SwatchList.CHANGE, function (color) {
-	colorPicker.hue =
-		huePicker.color =
-			swatch.color = color;
+	colorPicker.hue = color.hue();
+
+	huePicker.color =
+		swatch.color = color;
 });
 
 hslPicker.on(HSLPicker.CHANGE, function (color) {
-	saturationPicker.color = color;
+	saturationPicker.hue = color.hue();
+	saturationPicker.lightness = color.lightness();
 });
 
 saturationPicker.on(SaturationPicker.CHANGE, function (color) {
-	hslPicker.color = color;
+	hslPicker.saturation = color.saturation();
 });
 
 swatches.appendTo($swatches);

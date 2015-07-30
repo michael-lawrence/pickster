@@ -15,7 +15,7 @@ System.config({
 
 System.config({
   "map": {
-    "pickster": "../../lib",
+    "pickster": "./lib",
 
     "babel": "npm:babel-core@5.8.3",
     "babel-runtime": "npm:babel-runtime@5.8.3",

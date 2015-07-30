@@ -1,6 +1,5 @@
 'use strict';
 
-import Emitter from 'pickster/Emitter';
 import HuePicker from 'pickster/HuePicker';
 import ColorPicker from 'pickster/ColorPicker';
 import Swatch from 'pickster/Swatch';
@@ -21,12 +20,6 @@ let $colorPicker = document.getElementById('colorPicker'),
 	saturationPicker = new SaturationPicker(20, 360),
 	swatch = new Swatch(20, 20),
 	swatches = new SwatchList(20, 20, [
-		'#ff0000',
-		'#ffff00',
-		'#00ff00',
-		'#00ffff',
-		'#0000ff',
-		'#ff00ff',
 		'hsl(0, 0%, 100%)',
 		'hsl(0, 0%, 90%)',
 		'hsl(0, 0%, 80%)',
@@ -37,32 +30,48 @@ let $colorPicker = document.getElementById('colorPicker'),
 		'hsl(0, 0%, 30%)',
 		'hsl(0, 0%, 20%)',
 		'hsl(0, 0%, 10%)',
-		'hsl(0, 0%, 0%)'
+		'hsl(0, 0%, 0%)',
+
+		'hsl(0, 100%, 50%)',
+		'hsl(36, 100%, 50%)',
+		'hsl(72, 100%, 50%)',
+		'hsl(108, 100%, 50%)',
+		'hsl(144, 100%, 50%)',
+		'hsl(180, 100%, 50%)',
+		'hsl(216, 100%, 50%)',
+		'hsl(252, 100%, 50%)',
+		'hsl(288, 100%, 50%)',
+		'hsl(324, 100%, 50%)'
 	]),
 	customSwatches = new SwatchList($customSwatches);
 
-colorPicker.on(ColorPicker.CHANGE, function (color) {
-	swatch.color = color;
+colorPicker.observe(ColorPicker.CHANGE, change => {
+	swatch.color = change.color;
 });
 
-huePicker.on(HuePicker.CHANGE, function (color) {
-	colorPicker.hue = color.hue();
+huePicker.observe(HuePicker.CHANGE, change => {
+	colorPicker.hue = change.color.hue();
 });
 
-swatches.on(SwatchList.CHANGE, function (color) {
-	colorPicker.hue = color.hue();
+swatches.observe(SwatchList.CHANGE, change => {
+	colorPicker.hue = change.color.hue();
 
 	huePicker.color =
-		swatch.color = color;
+		swatch.color = change.color;
+
+	saturationPicker.hue = change.color.hue();
+	saturationPicker.lightness = change.color.lightness();
 });
 
-hslPicker.on(HSLPicker.CHANGE, function (color) {
-	saturationPicker.hue = color.hue();
-	saturationPicker.lightness = color.lightness();
+hslPicker.observe(HSLPicker.CHANGE, change => {
+	saturationPicker.hue = change.color.hue();
+	saturationPicker.lightness = change.color.lightness();
+
+	swatch.color = change.color;
 });
 
-saturationPicker.on(SaturationPicker.CHANGE, function (color) {
-	hslPicker.saturation = color.saturation();
+saturationPicker.observe(SaturationPicker.CHANGE, change => {
+	hslPicker.saturation = change.color.saturation();
 });
 
 swatches.appendTo($swatches);
